@@ -8,44 +8,44 @@ static constexpr auto MAP_WIDTH = 24;
 static constexpr auto MAP_HEIGHT = 24;
 
 static constexpr int worldMap[MAP_WIDTH][MAP_HEIGHT] = {
-    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 0, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-    ,{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 0, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
+    ,{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
 
 void Maze::run()
 {
-    double posX = 22, posY = 12;        // x and y start position
-    double dirX = -1, dirY = 0;         // initial direction vector
-    double planeX = 0, planeY = 0.66;   // the 2d raycaster version of camera plane
+    double posX = MAP_WIDTH / 2, posY = MAP_HEIGHT / 2; // x and y start position
+    double dirX = -1, dirY = 0; // initial direction vector
+    double planeX = 0, planeY = 0.66; // the 2d raycaster version of camera plane
 
-    double time = 0;                    // time of current frame
-    double oldTime;                     // time of previous frame
+    double time = 0; // time of current frame
+    double oldTime; // time of previous frame
 
-    screen(1024, 768, 0, "Raycaster");
+    screen(512, 384, 0, "Raycaster");
 
-    while (!done()) {
+    while (!done(false)) {
         for (auto x = 0; x < w; x++) {
             // calculate ray position and direction
             auto cameraX = 2 * x / double(w) - 1; // x-coordinate in camera space
@@ -66,13 +66,13 @@ void Maze::run()
             auto deltaDistY = sqrt(1 + (rayDirX * rayDirX) / (rayDirY * rayDirY));
             double perpWallDist;
 
-            //what direction to step in x or y-direction (either +1 or -1)
+            // what direction to step in x or y-direction (either +1 or -1)
             int stepX;
             int stepY;
 
-            auto hit = 0;   // was there a wall hit?
-            auto side = 0;  // was a NS or a EW wall hit?
-                            // calculate step and initial sideDist
+            auto hit = 0; // was there a wall hit?
+            auto side = 0; // was a NS or a EW wall hit?
+            // calculate step and initial sideDist
             if (rayDirX < 0) {
                 stepX = -1;
                 sideDistX = (rayPosX - mapX) * deltaDistX;
@@ -114,7 +114,7 @@ void Maze::run()
             // Calculate height of line to draw on screen
             auto lineHeight = abs(int(h / perpWallDist));
 
-            //calculate lowest and highest pixel to fill in current stripe
+            // calculate lowest and highest pixel to fill in current stripe
             auto drawStart = -lineHeight / 2 + h / 2;
             if (drawStart < 0)drawStart = 0;
             auto drawEnd = lineHeight / 2 + h / 2;
@@ -123,25 +123,27 @@ void Maze::run()
             // choose wall color
             ColorRGB color;
             switch (worldMap[mapX][mapY]) {
-            case 1:
-                color = RGB_Red;
-                break; // red
-            case 2:
-                color = RGB_Green;
-                break; // green
-            case 3:
-                color = RGB_Blue;
-                break; // blue
-            case 4:
-                color = RGB_White;
-                break; // white
-            default:
-                color = RGB_Magenta;
-                break; // yellow
+                case 1:
+                    color = RGB_Red;
+                    break; // red
+                case 2:
+                    color = RGB_Green;
+                    break; // green
+                case 3:
+                    color = RGB_Blue;
+                    break; // blue
+                case 4:
+                    color = RGB_White;
+                    break; // white
+                default:
+                    color = RGB_Magenta;
+                    break; // yellow
             }
 
             // give x and y sides different brightness
-            if (side == 1) { color = color / 2; }
+            if (side == 1) {
+                color = color / 2;
+            }
 
             // draw the pixels of the stripe as a vertical line
             verLine(x, drawStart, drawEnd, color);
@@ -150,14 +152,14 @@ void Maze::run()
         // timing for input and FPS counter
         oldTime = time;
         time = getTicks();
-        auto frameTime = (time - oldTime) / 1000.0;   // frameTime is the time this frame has taken, in seconds
-                                                        // print(1.0 / frameTime); //FPS counter
+        auto frameTime = (time - oldTime) / 1000.0; // frameTime is the time this frame has taken, in seconds
+        // print(1.0 / frameTime); // FPS counter
         redraw();
         cls();
 
         // speed modifiers
-        auto moveSpeed = frameTime * 5.0;             // the constant value is in squares/second
-        auto rotSpeed = frameTime * 3.0;              // the constant value is in radians/second
+        auto moveSpeed = frameTime * 5.0; // the constant value is in squares/second
+        auto rotSpeed = frameTime * 3.0; // the constant value is in radians/second
 
         readKeys();
 
@@ -173,7 +175,7 @@ void Maze::run()
         }
         // rotate to the right
         if (keyDown(SDLK_RIGHT)) {
-            //both camera direction and camera plane must be rotated
+            // both camera direction and camera plane must be rotated
             auto oldDirX = dirX;
             dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
             dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
@@ -193,3 +195,4 @@ void Maze::run()
         }
     }
 }
+
