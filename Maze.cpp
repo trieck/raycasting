@@ -115,29 +115,27 @@ void Maze::run()
             auto lineHeight = abs(int(h / perpWallDist));
 
             // calculate lowest and highest pixel to fill in current stripe
-            auto drawStart = -lineHeight / 2 + h / 2;
-            if (drawStart < 0)drawStart = 0;
-            auto drawEnd = lineHeight / 2 + h / 2;
-            if (drawEnd >= h)drawEnd = h - 1;
+            auto drawStart = std::max(0, -lineHeight / 2 + h / 2);
+            auto drawEnd = std::min(h - 1, lineHeight / 2 + h / 2);
 
             // choose wall color
             ColorRGB color;
             switch (worldMap[mapX][mapY]) {
-                case 1:
-                    color = RGB_Red;
-                    break; // red
-                case 2:
-                    color = RGB_Green;
-                    break; // green
-                case 3:
-                    color = RGB_Blue;
-                    break; // blue
-                case 4:
-                    color = RGB_White;
-                    break; // white
-                default:
-                    color = RGB_Magenta;
-                    break; // yellow
+            case 1:
+                color = RGB_Red;
+                break; // red
+            case 2:
+                color = RGB_Green;
+                break; // green
+            case 3:
+                color = RGB_Blue;
+                break; // blue
+            case 4:
+                color = RGB_White;
+                break; // white
+            default:
+                color = RGB_Magenta;
+                break; // yellow
             }
 
             // give x and y sides different brightness
@@ -153,7 +151,7 @@ void Maze::run()
         oldTime = time;
         time = getTicks();
         auto frameTime = (time - oldTime) / 1000.0; // frameTime is the time this frame has taken, in seconds
-        // print(1.0 / frameTime); // FPS counter
+        
         redraw();
         cls();
 
