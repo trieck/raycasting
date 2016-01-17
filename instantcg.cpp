@@ -33,6 +33,7 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "stdafx.h"
 #include "instantcg.h"
 
 namespace InstantCG
@@ -90,10 +91,10 @@ void screen(int width, int height, bool fullscreen, const std::string& text)
   } else {
     win = SDL_CreateWindow(text.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP);
   }
-  if (win == NULL) { std::cout << "Window error: " << SDL_GetError() << std::endl; SDL_Quit(); std::exit(1);}
+  if (win == nullptr) { std::cout << "Window error: " << SDL_GetError() << std::endl; SDL_Quit(); std::exit(1);}
 
 	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-  if (ren == NULL) { std::cout << "Renderer error: " << SDL_GetError() << std::endl; SDL_Quit(); std::exit(1); }
+  if (ren == nullptr) { std::cout << "Renderer error: " << SDL_GetError() << std::endl; SDL_Quit(); std::exit(1); }
 
   if (fullscreen) {
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
@@ -141,7 +142,7 @@ void drawBuffer(Uint32* buffer, bool swapXY)
     if( swapXY )
     {
         // copy the entire buffer straight into the texture
-        SDL_UpdateTexture(scr, NULL, buffer, w * sizeof(Uint32));
+        SDL_UpdateTexture(scr, nullptr, buffer, w * sizeof(Uint32));
     }
     else
     {
@@ -161,7 +162,7 @@ void drawBuffer(Uint32* buffer, bool swapXY)
         }
     }
     // draw the entire texture to the screen
-    SDL_RenderCopy(ren, scr, NULL, NULL);
+    SDL_RenderCopy(ren, scr, nullptr, nullptr);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -224,7 +225,7 @@ void end()
 //Gives value of pressed keys to inkeys
 void readKeys()
 {
-    inkeys = SDL_GetKeyboardState(NULL);
+    inkeys = SDL_GetKeyboardState(nullptr);
 }
 
 void getMouseState(int& mouseX, int& mouseY)

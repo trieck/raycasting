@@ -39,12 +39,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <SDL2/SDL.h>
 
 #include <cstdlib>
-#include <cstdio>
 #include <iostream>
-#include <string>
 #include <sstream>
-#include <vector>
 #include <iomanip>
+// ReSharper disable once CppUnusedIncludeDirective
+#include <algorithm>
 
 namespace InstantCG
 {
