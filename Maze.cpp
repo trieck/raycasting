@@ -32,6 +32,11 @@ static constexpr int worldMap[MAP_WIDTH][MAP_HEIGHT] = {
     ,{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
 
+static const ColorRGB Red(116, 67, 53);
+static const ColorRGB Green(100, 151, 79);
+static const ColorRGB Blue(64, 50, 133);
+static const ColorRGB Violet(123, 72, 144);
+
 int Maze::run()
 {
     double posX = MAP_WIDTH / 2, posY = MAP_HEIGHT / 2; // x and y start position
@@ -115,7 +120,7 @@ int Maze::run()
                 perpWallDist = fabs((mapY - rayPosY + (1 - stepY) / 2) / rayDirY);
 
             // Calculate height of line to draw on screen
-            auto lineHeight = abs(int(size.second / perpWallDist));
+            auto lineHeight = static_cast<int>(fabs(size.second / perpWallDist));
 
             // calculate lowest and highest pixel to fill in current stripe
             auto drawStart = max(0, -lineHeight / 2 + size.second / 2);
@@ -125,20 +130,20 @@ int Maze::run()
             ColorRGB color;
             switch (worldMap[mapX][mapY]) {
             case 1:
-                color = RGB_Red;
+                color = Red;
                 break; // red
             case 2:
-                color = RGB_Green;
+                color = Green;
                 break; // green
             case 3:
-                color = RGB_Blue;
+                color = Blue;
                 break; // blue
             case 4:
                 color = RGB_White;
                 break; // white
             default:
-                color = RGB_Magenta;
-                break; // yellow
+                color = Violet;
+                break; // violet
             }
 
             // give x and y sides different brightness
