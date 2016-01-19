@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "Maze.h"
-#include "instantcg.h"
-
-using namespace InstantCG;
+#include "SDL.h"
 
 static constexpr auto MAP_WIDTH = 24;
 static constexpr auto MAP_HEIGHT = 24;
@@ -34,21 +32,26 @@ static constexpr int worldMap[MAP_WIDTH][MAP_HEIGHT] = {
     ,{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
 
-void Maze::run()
+int Maze::run()
 {
     double posX = MAP_WIDTH / 2, posY = MAP_HEIGHT / 2; // x and y start position
-    double dirX = -1, dirY = 0; // initial direction vector
-    double planeX = 0, planeY = 0.66; // the 2d raycaster version of camera plane
+    double dirX = -1, dirY = 0;                         // initial direction vector
+    double planeX = 0, planeY = 0.66;                   // the 2d raycaster version of camera plane
 
-    double time = 0; // time of current frame
-    double oldTime; // time of previous frame
+    double time = 0;    // time of current frame
+    double oldTime;     // time of previous frame
 
-    screen(512, 384, 0, "Raycaster");
+    SDL sdl;
+    if (!sdl.screen(512, 384, false, "Raycasting"))
+        return EXIT_FAILURE;
 
-    while (!done(false)) {
-        for (auto x = 0; x < w; x++) {
+    auto size = sdl.drawableSize();
+
+    //int width = sdl.
+    while (SDL::isRunning()) {
+        for (auto x = 0; x < size.first; x++) {
             // calculate ray position and direction
-            auto cameraX = 2 * x / double(w) - 1; // x-coordinate in camera space
+            auto cameraX = 2 * x / double(size.first) - 1; // x-coordinate in camera space
             auto rayPosX = posX;
             auto rayPosY = posY;
             auto rayDirX = dirX + planeX * cameraX;
@@ -112,11 +115,11 @@ void Maze::run()
                 perpWallDist = fabs((mapY - rayPosY + (1 - stepY) / 2) / rayDirY);
 
             // Calculate height of line to draw on screen
-            auto lineHeight = abs(int(h / perpWallDist));
+            auto lineHeight = abs(int(size.second / perpWallDist));
 
             // calculate lowest and highest pixel to fill in current stripe
-            auto drawStart = std::max(0, -lineHeight / 2 + h / 2);
-            auto drawEnd = std::min(h - 1, lineHeight / 2 + h / 2);
+            auto drawStart = max(0, -lineHeight / 2 + size.second / 2);
+            auto drawEnd = min(size.second - 1, lineHeight / 2 + size.second / 2);
 
             // choose wall color
             ColorRGB color;
@@ -144,35 +147,36 @@ void Maze::run()
             }
 
             // draw the pixels of the stripe as a vertical line
-            verLine(x, drawStart, drawEnd, color);
+            sdl.vertLine(x, drawStart, drawEnd, color);
         }
 
         // timing for input and FPS counter
         oldTime = time;
-        time = getTicks();
+        time = SDL::getTicks();
         auto frameTime = (time - oldTime) / 1000.0; // frameTime is the time this frame has taken, in seconds
-        
-        redraw();
-        cls();
+
+        sdl.render();
+        sdl.clear();
 
         // speed modifiers
         auto moveSpeed = frameTime * 5.0; // the constant value is in squares/second
         auto rotSpeed = frameTime * 3.0; // the constant value is in radians/second
 
-        readKeys();
+        auto state = SDL::readKeys();
 
         // move forward if no wall in front of you
-        if (keyDown(SDLK_UP)) {
+        if (SDL::keyDown(state, SDLK_UP)) {
             if (worldMap[int(posX + dirX * moveSpeed)][int(posY)] == 0) posX += dirX * moveSpeed;
             if (worldMap[int(posX)][int(posY + dirY * moveSpeed)] == 0) posY += dirY * moveSpeed;
         }
+
         // move backwards if no wall behind you
-        if (keyDown(SDLK_DOWN)) {
+        if (SDL::keyDown(state, SDLK_DOWN)) {
             if (worldMap[int(posX - dirX * moveSpeed)][int(posY)] == 0) posX -= dirX * moveSpeed;
             if (worldMap[int(posX)][int(posY - dirY * moveSpeed)] == 0) posY -= dirY * moveSpeed;
         }
         // rotate to the right
-        if (keyDown(SDLK_RIGHT)) {
+        if (SDL::keyDown(state, SDLK_RIGHT)) {
             // both camera direction and camera plane must be rotated
             auto oldDirX = dirX;
             dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
@@ -182,7 +186,7 @@ void Maze::run()
             planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
         }
         // rotate to the left
-        if (keyDown(SDLK_LEFT)) {
+        if (SDL::keyDown(state, SDLK_LEFT)) {
             // both camera direction and camera plane must be rotated
             auto oldDirX = dirX;
             dirX = dirX * cos(rotSpeed) - dirY * sin(rotSpeed);
@@ -192,5 +196,6 @@ void Maze::run()
             planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
         }
     }
-}
 
+    return EXIT_SUCCESS;
+}
